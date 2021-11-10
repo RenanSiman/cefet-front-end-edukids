@@ -11,9 +11,9 @@
 /* Exercício 1: Criar uma transição para quando o mouse estiver em cima dos
  * botões play/stop (para que o elemento se revele lentamente)
  */
- #controles ul {
-
- }
+#controles ul {
+  transition-duration: 0.7s;
+}
 
 /*
  * Exercício 2: Você deve implementar uma metáfora visual para cada um dos 4
@@ -23,18 +23,92 @@
  *   - com-raiva: animal fica pulsando
  *   - atacando: animal dá um salto e cresce, com uma borda vermelha
  */
-.com-fome {
 
+.com-fome {
+  animation: blinking 1.15s ease-in-out 0s infinite alternate,
+    toYellow 1s ease-in 0s infinite alternate;
 }
 
 .satisfeito {
-
+  position: relative;
+  animation: toGreen 1s linear 0s,
+    jumping 0.43s linear 0s infinite alternate;
 }
 
 .com-raiva {
-
+  position: relative;
+  animation: bigger 0.8s ease-in 0s infinite alternate;
 }
 
 .atacando {
+  position: relative;
+  animation: toRed 1s ease-in 0s,
+    spinning 1s ease-in-out 0s infinite alternate;
+}
 
+@keyframes blinking {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.75;
+  }
+}
+
+@keyframes toYellow {
+  from {
+    border: 2px solid #fff;
+  }
+  to {
+    border: 8px solid yellow;
+  }
+}
+
+@keyframes toGreen {
+  from {
+    border: 2px solid #fff;
+  }
+  to {
+    border: 8px solid green;
+  }
+}
+
+@keyframes jumping {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-55px);
+  }
+
+}
+
+@keyframes bigger {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes toRed {
+  from {
+    border: 2px solid #fff;
+  }
+  to {
+    border: 8px solid red;
+  }
+}
+
+@keyframes spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(720deg);
+  }
 }

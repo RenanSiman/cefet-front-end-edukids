@@ -23,6 +23,9 @@ let animais = [];
 const successSound = new Audio('sounds/success.wav'),
   errorSound = new Audio('sounds/error.wav');
 
+  successSound.volume = 0.02;
+  errorSound.volume = 0.02;
+
 function sorteiaAnimais(quantos) {
   let animaisTodosCopia = animaisTodos.slice(0),
     indiceSorteado,
